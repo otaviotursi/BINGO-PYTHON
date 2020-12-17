@@ -5,5 +5,5 @@
  1 Programa que cria cartelas de bingo;
  1 programa que redimensiona cartelas de bingo (desenvolvimento). </p>
  
-<p>Você irá encontrar dentro da pasta 'gerar numeros' um arquivo chamdo geradorDeNumerosBingo.py, esse irá gerar os numeros para o nosso bingo, de 1 à 75.
+<p>Você irá encontrar dentro da pasta 'gerar numeros' um arquivo chamado geradorDeNumerosBingo.py, esse, irá gerar os numeros para o nosso bingo, de 1 à 75.
  1 programa que gera numeros de bingo um arquivo.</p>
