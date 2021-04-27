@@ -9,19 +9,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import random
+import sys
 
-B = []
-I = []
-N = []
-G = []
-O = []
-lista = [0]
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
-
+        self.MainWindow = MainWindow
         font = QtGui.QFont()
         font.setPointSize(12)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -87,245 +82,178 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.btnGerarNumero.clicked.connect(self.geraNumero)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Sorteador de numeros - BINGO"))
-        self.labelB.setText(_translate("MainWindow", "Numeros de B"))
-        self.labelI.setText(_translate("MainWindow", "Numeros de I"))
-        self.labelN.setText(_translate("MainWindow", "Numeros de N"))
-        self.labelG.setText(_translate("MainWindow", "Numeros de G"))
-        self.labelO.setText(_translate("MainWindow", "Numeros de O"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Sorteador de números - BINGO"))
+        self.labelB.setText(_translate("MainWindow", "Números de B"))
+        self.labelI.setText(_translate("MainWindow", "Números de I"))
+        self.labelN.setText(_translate("MainWindow", "Números de N"))
+        self.labelG.setText(_translate("MainWindow", "Números de G"))
+        self.labelO.setText(_translate("MainWindow", "Números de O"))
 
-        self.listaAll.setText(_translate("MainWindow", "ultimo numero"))
+        self.listaAll.setText(_translate("MainWindow", "ultimo número"))
         
-        self.btnGerarNumero.setText(_translate("MainWindow", "Gerar numero"))
+        self.btnGerarNumero.setText(_translate("MainWindow", "Gerar número"))
         self.labelNumeroGerado.setText(_translate("MainWindow", "0"))
-        self.labelRestaNumero.setText(_translate("MainWindow", "Resta: 75 numeros"))
+        self.labelRestaNumero.setText(_translate("MainWindow", "Resta: 75 números"))
+
+        # paramentros iniciais, as listas estão aqui para conseguirmos removers os indices, conforme for preciso.
+        self.listOfBingo = ['B','I','N','G','O']
+
+        self.sorteadoNumeroB = []
+        self.listaB = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        self.sorteadoNumeroI = []
+        self.listaI = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+        self.sorteadoNumeroN = []
+        self.listaN = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45]
+        self.sorteadoNumeroG = []
+        self.listaG = [46,47,48,49,50,51,52,53,54,55,56,57,58,59,60]
+        self.sorteadoNumeroO = []
+        self.listaO = [61,62,63,64,65,66,67,68,69,70,71,72,73,74,75]
+        
+        self.listaSorteados = [0]
+        self.btnGerarNumero.clicked.connect(self.geraNumero)
 
     def geraNumero(self):
-        # print('ta aqui')
+        # vai chamar a funcao de sortear o numero e atualizar o texto na GUI 
         self.sortearLetra()
-        # print('-------------------------------------------------')
-        # self.labelB.set
-        self.labelB.setText('B: ' + str(B))
+        self.labelB.setText('B: ' + str(self.sorteadoNumeroB))
         self.labelB.adjustSize()
-        # print(f'B: {B}')
 
-        self.labelI.setText('I:  ' + str(I))
+        self.labelI.setText('I:  ' + str(self.sorteadoNumeroI))
         self.labelI.adjustSize()
 
-        # print(f'I: {I}')
-
-        self.labelN.setText('N: ' + str(N))
+        self.labelN.setText('N: ' + str(self.sorteadoNumeroN))
         self.labelN.adjustSize()
 
-        # print(f'N: {N}')
-
-        self.labelG.setText('G: ' + str(G))
+        self.labelG.setText('G: ' + str(self.sorteadoNumeroG))
         self.labelG.adjustSize()
 
-        # print(f'G: {G}')
-
-        self.labelO.setText('O: ' + str(O))
+        self.labelO.setText('O: ' + str(self.sorteadoNumeroO))
         self.labelO.adjustSize()
 
-        self.listaAll.setText(str(lista[-2]))
+        self.listaAll.setText(str(self.listaSorteados[-2]))
         self.listaAll.adjustSize()
 
-        # print(f'O: {O}')
-
-        # print('-------------------------------------------------')
-
-    def __init__(self):
-        self.sorteadoBnumero = 0
-        self.sorteadoInumero = 0
-        self.sorteadoNnumero = 0
-        self.sorteadoGnumero = 0
-        self.sorteadoOnumero = 0
-        self.listOfBingo = [1,2,3,4,5]
-        self.restaNumerosBingo = 0
+        self.labelRestaNumero.setText(f'Resta: {str(76 - len(self.listaSorteados))} números')
 
     def sortearLetra(self):
-        BINGO = random.choice(self.listOfBingo)
+        BINGO = None
 
-        if BINGO == 1:
-            if self.sorteadoBnumero <= 14:
-                self.sorteadoBnumero +=1 
-                # print('sorteado G ',self.sorteadoBnumero)
-                if self.sorteadoBnumero == 15:
-                    # print('retirando B no 15')
-                    self.listOfBingo.remove(1)
-                self.BdeBingo()
-            else:
-                self.listOfBingo.remove(1)
-                # print(self.listOfBingo)
-                # print("sortenado novamente O")
+        # vamos sortear uma letra do BINGO
 
-                self.sortearLetra
-                
+        if len(self.listOfBingo) > 0:
+            BINGO = random.choice(self.listOfBingo)
 
-        if BINGO == 2:
-            if self.sorteadoInumero <= 14:
-                self.sorteadoInumero +=1 
-                # print('sorteado I',self.sorteadoInumero)
-                if self.sorteadoInumero == 15:
-                    # print('retirando I no 15')
-                    self.listOfBingo.remove(2)
-                self.IdeBingo()
+        #chamando a funcao que vai escolher o numero 
+        if BINGO == 'B':
+
+            self.sortearLetraB()
     
+        elif BINGO == 'I':
+            
+            self.sortearLetraI()
+    
+        elif BINGO == 'N':
+            
+            self.sortearLetraN()
+        
+        elif BINGO == 'G':
+            
+            self.sortearLetraG()
 
-            else:
+        elif BINGO == 'O':
+            
+            self.sortearLetraO()
 
-                self.listOfBingo.remove(2)
-                # print(self.listOfBingo)
-
-                # print("sortenado novamente I")
-                self.sortearLetra
-
-        if BINGO == 3:
-            if self.sorteadoNnumero <= 14:
-                self.sorteadoNnumero +=1 
-                # print('sorteadoN',self.sorteadoNnumero)
-                if self.sorteadoNnumero == 15:
-                    # print('retirando N no 15')
-                    self.listOfBingo.remove(3)
-                self.NdeBingo()
-            else:
-                self.listOfBingo.remove(3)
-                # print(self.listOfBingo)
-
-                # print("sortenado novamente N")
-
-                self.sortearLetra
-
-        if BINGO == 4:
-            if self.sorteadoGnumero <= 14:
-                self.sorteadoGnumero +=1 
-                # print('sorteado G',self.sorteadoGnumero)
-                if self.sorteadoGnumero == 15:
-                    # print('retirando G no 15')
-                    self.listOfBingo.remove(4)
-                self.GdeBingo()
-            else:
-                self.listOfBingo.remove(4)
-                # print(self.listOfBingo)
-
-                # print("sortenado novamente G")
-
-                self.sortearLetra
-
-        if BINGO == 5:
-            if self.sorteadoOnumero <= 14:
-                self.sorteadoOnumero +=1 
-                # print('sorteado O',self.sorteadoOnumero)
-                self.OdeBingo()
-                if self.sorteadoOnumero == 15:
-                    # print('retirando O no 15')
-                    self.listOfBingo.remove(5)
-            else:
-                self.listOfBingo.remove(5)
-                # print(self.listOfBingo)
-
-                # print("sortenado novamente O")
-
-                self.sortearLetra
-
-
-    def BdeBingo(self):
-        if len(B) == 15:
-            self.sortearLetra
         else:
-            Bingo = random.randint(1, 15)
-            if Bingo not in B:
-                B.append(Bingo)
-                lista.append(Bingo)
-                # print(f'B: {Bingo}')
-                self.labelNumeroGerado.setText('B: ' + str(Bingo))
+            QtWidgets.QMessageBox.about(self.MainWindow, "ATENÇÃO!", "Todos os números ja foram sorteados!\n\nFeche abra novamente o programa para gerar outro bingo.")
+        
+    def sortearLetraB(self):
+        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
+        numero = random.choice(self.listaB)
+        self.listaB.remove(numero)
+        self.labelNumeroGerado.setText('B: ' + str(numero))
 
-                self.restaNumerosBingo+=1
-                self.labelRestaNumero.setText('Resta: ' + str(75 - self.restaNumerosBingo) + ' numeros')
+        # armazenando e ordenando o numero sorteado do tipo 'B', para colocar na GUI posteriormente.
+        self.sorteadoNumeroB.append(numero)
+        self.sorteadoNumeroB.sort()
 
-            else:
-                self.BdeBingo()
-            B.sort()
+        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
+        self.listaSorteados.append(numero)
 
+        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'B'
+        if len(self.listaB) <= 0:
+            self.listOfBingo.remove('B')
 
+    def sortearLetraI(self):
+        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
+        numero = random.choice(self.listaI)
+        self.listaI.remove(numero)
+        self.labelNumeroGerado.setText('I: ' + str(numero))
 
-    def IdeBingo(self):
-        if len(I) == 15:
-            self.sortearLetra
-        else:
-            Bingo = random.randint(16, 30)
-            if Bingo not in I:
-                I.append(Bingo)
-                lista.append(Bingo)
-                # print(f'I: {Bingo}')
-                self.labelNumeroGerado.setText('I: ' + str(Bingo))
+        # armazenando e ordenando o numero sorteado do tipo 'I', para colocar na GUI posteriormente.
+        self.sorteadoNumeroI.append(numero)
+        self.sorteadoNumeroI.sort()
 
-                self.restaNumerosBingo+=1
-                self.labelRestaNumero.setText('Resta: ' + str(75 - self.restaNumerosBingo) + ' numeros')
-            else:
-                self.IdeBingo()
-            I.sort()
+        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
+        self.listaSorteados.append(numero)
 
+        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'I'
+        if len(self.listaI) <= 0:
+            self.listOfBingo.remove('I')
+    
+    def sortearLetraN(self):
+        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
+        numero = random.choice(self.listaN)
+        self.listaN.remove(numero)
+        self.labelNumeroGerado.setText('N: ' + str(numero))
 
+        # armazenando e ordenando o numero sorteado do tipo 'N', para colocar na GUI posteriormente.
+        self.sorteadoNumeroN.append(numero)
+        self.sorteadoNumeroN.sort()
 
-    def NdeBingo(self):
-        if len(N) == 15:
-            self.sortearLetra
-        else:
-            Bingo = random.randint(31, 45)
-            if Bingo not in N:
-                N.append(Bingo)
-                lista.append(Bingo)
-                # print(f'N: {Bingo}')
-                self.labelNumeroGerado.setText('N: ' + str(Bingo))
+        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
+        self.listaSorteados.append(numero)
 
-                self.restaNumerosBingo+=1
-                self.labelRestaNumero.setText('Resta: ' + str(75 - self.restaNumerosBingo) + ' numeros')
-            else:
-                self.NdeBingo()
-            N.sort()
+        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'N'
+        if len(self.listaN) <= 0:
+            self.listOfBingo.remove('N')
 
+    def sortearLetraG(self):
+        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
+        numero = random.choice(self.listaG)
+        self.listaG.remove(numero)
+        self.labelNumeroGerado.setText('G: ' + str(numero))
 
-    def GdeBingo(self):
-        if len(G) == 15:
-            self.sortearLetra
-        else:
-            Bingo = random.randint(46, 60)
-            if Bingo not in G:
-                G.append(Bingo)
-                lista.append(Bingo)
-                # print(f'G: {Bingo}')
+        # armazenando e ordenando o numero sorteado do tipo 'G', para colocar na GUI posteriormente.
+        self.sorteadoNumeroG.append(numero)
+        self.sorteadoNumeroG.sort()
+        
+        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
+        self.listaSorteados.append(numero)
 
-                self.labelNumeroGerado.setText('G: ' + str(Bingo))
+        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'G'
+        if len(self.listaG) <= 0:
+            self.listOfBingo.remove('G')
 
-                self.restaNumerosBingo+=1
-                self.labelRestaNumero.setText('Resta: ' + str(75 - self.restaNumerosBingo) + ' numeros')
-            else:
-                self.GdeBingo()
-            G.sort()
+    def sortearLetraO(self):
+        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
+        numero = random.choice(self.listaO)
+        self.listaO.remove(numero)
+        self.labelNumeroGerado.setText('O: ' + str(numero))
 
+        # armazenando e ordenando o numero sorteado do tipo 'O', para colocar na GUI posteriormente.
+        self.sorteadoNumeroO.append(numero)
+        self.sorteadoNumeroO.sort()
+        
+        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
+        self.listaSorteados.append(numero)
 
-    def OdeBingo(self):
-        if len(O) == 15:
-            self.sortearLetra
-        else:
-            Bingo = random.randint(61, 75)
-            if Bingo not in O:
-                O.append(Bingo)
-                lista.append(Bingo)
-                # print(f'O: {Bingo}')
-                self.labelNumeroGerado.setText('O: ' + str(Bingo))
-
-                self.restaNumerosBingo+=1
-                self.labelRestaNumero.setText('Resta: ' + str(75 - self.restaNumerosBingo) + ' numeros')
-            else:
-                self.OdeBingo()
-            O.sort()
-
+        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'O'
+        if len(self.listaO) <= 0:
+            self.listOfBingo.remove('O')
 
 if __name__ == "__main__":
     import sys
@@ -335,3 +263,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
