@@ -32,6 +32,7 @@ def ajusteTamanho():
         if 'CARTELA_ANOTACOES' not in pic:
             shutil.move(f'cartelas-numeradas/{pic}', f'cartelas-usadas/{pic}')
 
+
 def imprimirA4():
     qntFolhasImpressao = 5
     
@@ -86,6 +87,8 @@ def concat_vh(list_2d):
 
 
 ajusteTamanho()
+
+# está setado para 5 cartelas + 1 de anotações por folha A4
 imprimirA4()
 
 
