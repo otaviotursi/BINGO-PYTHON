@@ -16,39 +16,90 @@ from random import randint
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(460, 486)
+        MainWindow.resize(420, 440)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(70, 180, 131, 111))
-        font = QtGui.QFont()
-        font.setPointSize(72)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(52, 141, 161, 31))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setObjectName("lineEdit")
+
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(50, 300, 351, 31))
+        self.pushButton.setGeometry(QtCore.QRect(50, 300, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
+        self.label_1 = QtWidgets.QLabel(self.centralwidget)
+        self.label_1.setGeometry(QtCore.QRect(70, 180, 131, 111))
+        font = QtGui.QFont()
+        font.setPointSize(72)
+        self.label_1.setFont(font)
+        self.label_1.setObjectName("label_1")
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(50, 141, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setObjectName("lineEdit")
+        
+        
+        self.pushButton2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton2.setGeometry(QtCore.QRect(240, 300, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButton2.setFont(font)
+        self.pushButton2.setObjectName("pushButton")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(242, 141, 161, 31))
+        self.lineEdit_2.setGeometry(QtCore.QRect(240, 141, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(260, 180, 131, 111))
+        font = QtGui.QFont()
+        font.setPointSize(72)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+
+
+        self.pushButton3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton3.setGeometry(QtCore.QRect(430, 300, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButton3.setFont(font)
+        self.pushButton3.setObjectName("pushButton")
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_3.setGeometry(QtCore.QRect(430, 141, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.lineEdit_3.setFont(font)
+        self.lineEdit_3.setObjectName("lineEdit_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(260, 180, 131, 111))
+        self.label_3.setGeometry(QtCore.QRect(450, 180, 131, 111))
         font = QtGui.QFont()
         font.setPointSize(72)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
+
+
+        self.pushButton4 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton4.setGeometry(QtCore.QRect(620, 300, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButton4.setFont(font)
+        self.pushButton4.setObjectName("pushButton")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_4.setGeometry(QtCore.QRect(620, 141, 161, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.lineEdit_4.setFont(font)
+        self.lineEdit_4.setObjectName("lineEdit_2")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(640, 180, 131, 111))
+        font = QtGui.QFont()
+        font.setPointSize(72)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 460, 26))
@@ -66,52 +117,105 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
         self.lineEdit.setText(_translate("MainWindow", "pessoa 1"))
-        self.label_2.setText(_translate("MainWindow", "01"))
-
         self.lineEdit_2.setText(_translate("MainWindow", "pessoa 2"))
+        self.lineEdit_3.setText(_translate("MainWindow", "pessoa 3"))
+        self.lineEdit_4.setText(_translate("MainWindow", "pessoa 3"))
+
+        
+        self.label_1.setText(_translate("MainWindow", "01"))
+        self.label_2.setText(_translate("MainWindow", "01"))
         self.label_3.setText(_translate("MainWindow", "01"))
+        self.label_4.setText(_translate("MainWindow", "04"))
         
         self.pushButton.setText(_translate("MainWindow", "SORTEAR"))
-
-
+        self.pushButton2.setText(_translate("MainWindow", "SORTEAR"))
+        self.pushButton3.setText(_translate("MainWindow", "SORTEAR"))
+        self.pushButton4.setText(_translate("MainWindow", "SORTEAR"))
+        
+        self.listaSorteados = []
+        
+        
         # disputa 1
-        self.pushButton.clicked.connect(self.sortear1)
+        self.pushButton.clicked.connect(self.sortear)
+        # disputa 2
+        self.pushButton2.clicked.connect(self.sortear2)
+        # disputa 3
+        self.pushButton3.clicked.connect(self.sortear3)
+        # disputa 4
+        self.pushButton4.clicked.connect(self.sortear4)
 
 
     # disputa 1
-    def sortear1(self):
+    def sortear(self):
         
-        self.label_2.setText(str(0))
-        self.label_3.setText(str(0))
+        self.label_1.setText(str(0))
         self.pushButton.setDisabled(True)
 
-        # animacao
-        # for i in range(3):
-        #     sorteado1 = randint(1, 75)
-        #     sorteado2 = randint(1, 75)
-        #     self.label_2.setText(str(sorteado1))
-        #     self.label_3.setText(str(sorteado2))
-        #     QtWidgets.QApplication.processEvents()
-
-        #     sleep(0.2+(i/2))
-
-
-# sorteia 2 numeros de 0 à 75
-        sorteado1 = randint(1, 75)
-        sorteado2 = randint(1, 75)
-        while sorteado1 == sorteado2:
-            sorteado2 = randint(1, 75)
+        # sorteia 1 numero de 0 à 75
+        sortear = randint(1, 75)
         
-        self.label_2.setText(str(sorteado1))
-        self.label_3.setText(str(sorteado2))
+        for a in self.listaSorteados:
+            while a == sortear:
+                sortear = randint(1, 75)
+        self.listaSorteados.append(sortear)
 
+        self.label_1.setText(str(sortear))
         self.pushButton.setDisabled(False)
 
+        
+    def sortear2(self):
+        
+        self.label_2.setText(str(0))
+        self.pushButton2.setDisabled(True)
+
+        sortear = randint(1, 75)
+        for a in self.listaSorteados:
+            while a == sortear:
+                sortear = randint(1, 75)
+        self.listaSorteados.append(sortear)
+
+        self.label_2.setText(str(sortear))
+        self.pushButton2.setDisabled(False)
+    
+        
+    def sortear3(self):
+        
+        self.label_3.setText(str(0))
+        self.pushButton3.setDisabled(True)
+
+        sortear = randint(1, 75)
+        for a in self.listaSorteados:
+            while a == sortear:
+                sortear = randint(1, 75)
+        self.listaSorteados.append(sortear)
+
+        self.label_3.setText(str(sortear))
+        self.pushButton3.setDisabled(False)
+
+
+    def sortear4(self):
+        
+        self.label_4.setText(str(0))
+        self.pushButton4.setDisabled(True)
+
+        sortear = randint(1, 75)
+        for a in self.listaSorteados:
+            while a == sortear:
+                sortear = randint(1, 75)
+        self.listaSorteados.append(sortear)
+
+        self.label_4.setText(str(sortear))
+        self.pushButton4.setDisabled(False)
+
+    
+    def limparLista(self):
+        print(self.listaSorteados)
+        if len(self.listaSorteados) >= 4:
+            self.listaSorteados.clear()
+            
 
 
 if __name__ == "__main__":
-    # qntDisputa = input('Abrir disputa entre quantos jogadores? ')
-
     import ctypes
     ctypes.windll.user32.ShowWindow( ctypes.windll.kernel32.GetConsoleWindow(), 0 )
     app = QtWidgets.QApplication(sys.argv)
