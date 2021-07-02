@@ -15,14 +15,7 @@ O = []
 
 def BdeBingo():
     # vai sortear entre os dois valores
-    listaB = [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15]
-    Bingo = random.choice(listaB)
-    Bingo1 = random.choice(listaB)
-    while Bingo == Bingo1: 
-        Bingo1 = random.choice(listaB)
-    listaBin = [Bingo, Bingo1]
-    Bingo = random.choice(listaBin)
-
+    Bingo = random.randint(1, 15)
     if Bingo <= 9:
         Bingo = "0" + str(Bingo)
 
@@ -37,14 +30,7 @@ def BdeBingo():
 
 def IdeBingo():
     # vai sortear entre os dois valores
-    listaI = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-    Bingo = random.choice(listaI)
-    Bingo1 = random.choice(listaI)
-    while Bingo == Bingo1: 
-        Bingo1 = random.choice(listaI)
-    listaBin = [Bingo, Bingo1]
-    Bingo = random.choice(listaBin)
-
+    Bingo = random.randint(16, 30)
 
     # se o valor ja estiver dentro da lista, nao faz nada
     if Bingo not in I:
@@ -57,14 +43,8 @@ def IdeBingo():
 
 def NdeBingo():
     # vai sortear entre os dois valores
-    listaN = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45]
-    Bingo = random.choice(listaN)
-    Bingo1 = random.choice(listaN)
-    while Bingo == Bingo1: 
-        Bingo1 = random.choice(listaN)
-    listaBin = [Bingo, Bingo1]
-    Bingo = random.choice(listaBin)
-
+    Bingo = random.randint(31, 45)
+    
     # se o valor ja estiver dentro da lista, nao faz nada
     if Bingo not in N:
         N.append(Bingo)
@@ -76,14 +56,7 @@ def NdeBingo():
 
 def GdeBingo():
     # vai sortear entre os dois valores
-    listaG = [46,47,48,49,50,51,52,53,54,55,56,57,58,59, 60]
-    Bingo = random.choice(listaG)
-    Bingo1 = random.choice(listaG)
-    while Bingo == Bingo1: 
-        Bingo1 = random.choice(listaG)
-    listaBin = [Bingo, Bingo1]
-    Bingo = random.choice(listaBin)
-
+    Bingo = random.randint(46, 60)
 
     # se o valor ja estiver dentro da lista, nao faz nada
     if Bingo not in G:
@@ -96,13 +69,7 @@ def GdeBingo():
 
 def OdeBingo():
     # vai sortear entre os dois valores
-    listaO = [61,62,63,64,65,66,67,68,69,70,71,72,73,74, 75]
-    Bingo = random.choice(listaO)
-    Bingo1 = random.choice(listaO)
-    while Bingo == Bingo1: 
-        Bingo1 = random.choice(listaO)
-    listaBin = [Bingo, Bingo1]
-    Bingo = random.choice(listaBin)
+    Bingo = random.randint(61, 75)
 
     # se o valor ja estiver dentro da lista, nao faz nada
     if Bingo not in O:
