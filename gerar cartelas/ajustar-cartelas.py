@@ -22,7 +22,7 @@ def ajusteTamanho():
 
         # lê e reduz 2.2 vezes a imagem
         img = cv2.imread(pic)
-        resized = cv2.resize(img, (int(img.shape[1]/2.2), int(img.shape[0]/2.2)), 3)
+        resized = cv2.resize(img, (int(img.shape[1]/1.7), int(img.shape[0]/1.7)), 3)
 
         # escreve a cartela reduzida dentro da pasta "cartelas-ajustadas-tamanho"
         cv2.imwrite(f'cartelas-ajustadas-tamanho/resized_{picture}', resized)
@@ -34,10 +34,10 @@ def ajusteTamanho():
 
 
 def imprimirA4():
-    qntFolhasImpressao = 5
+    qntFolhasImpressao = 40
     
     for x in range(qntFolhasImpressao):
-
+        print(f'\nimprimindo folha: {x}')
         # verifica todas as imgs da pasta
         f = []
         for (dirpath, dirnames, filenames) in walk('cartelas-ajustadas-tamanho/'):
@@ -52,7 +52,7 @@ def imprimirA4():
                 # salvando...
                 tamReduzidoList.append(a)
                 # se a quantidade de rodadas/folhas chegar a 5, então para de salvar imgs
-                if len(tamReduzidoList) >= 5:
+                if len(tamReduzidoList) >= 4:
                     break
         
         # salvando imagem de anotações
@@ -66,20 +66,25 @@ def imprimirA4():
         img2 = cv2.imread(f'cartelas-ajustadas-tamanho/{tamReduzidoList[1]}')
         img3 = cv2.imread(f'cartelas-ajustadas-tamanho/{tamReduzidoList[2]}')
         img4 = cv2.imread(f'cartelas-ajustadas-tamanho/{tamReduzidoList[3]}')
-        img5 = cv2.imread(f'cartelas-ajustadas-tamanho/{tamReduzidoList[4]}')
-        img6 = cv2.imread(f'cartelas-ajustadas-tamanho/{anot[0]}')
-
+        print(f'folhas: {tamReduzidoList[0]} / {tamReduzidoList[1]} / {tamReduzidoList[2]} / {tamReduzidoList[3]}')
         # ajusta as imagens na folha 
-        img_tile = concat_vh([[img1, img2, img3], 
-                        [img4, img5, img6], 
+        img_tile = concat_vh([[img1, img2, ], 
+                        [img3, img4,], 
                         ]) 
 
         # imprime as imagens
-        cv2.imwrite(f'cartelas-impressao/Jogo_CARTELA{x}.jpg', img_tile)
-
+        cv2.imwrite(f'cartelas-impressao/Jogo_CARTELA_{x}.jpg', img_tile)
+        print(f"impressao feita: {x}")
+        
+        time.sleep(1.5)
         # move as magens já utilizadas para outra pasta
         for pic in tamReduzidoList:
+            print(f"impressao movida: {pic}")
             shutil.move(f'cartelas-ajustadas-tamanho/{pic}', f'cartelas-usadas/{pic}')
+        
+        tamReduzidoList.clear()
+        f.clear()
+
 
 def concat_vh(list_2d): 
     # return final image 
