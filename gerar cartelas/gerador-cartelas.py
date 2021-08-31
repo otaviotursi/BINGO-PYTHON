@@ -50,12 +50,13 @@ def BdeBingo():
 
 
 def IdeBingo():
-    # enquanto a lista for diferente de 5, a funcao vai continuar sendo chamada
+    # valores possiveis de serem sorteados
     lista1 = [16,17,18,19,20]
     lista2 = [21,22,23,24,25]
     lista3 = [26,27,28,29,30]
 
     ultimaLista = 'Vazio'
+    # enquanto a lista for diferente de 5, a funcao vai continuar sendo chamada
     while len(I) < 5:
         # vai sortear entre os valores das listas
         Bingo1 = random.choice(lista1)
@@ -63,6 +64,7 @@ def IdeBingo():
         Bingo3 = random.choice(lista3)
         Bingo = random.choice([Bingo1,Bingo2,Bingo3])
         
+        # faz uma verificao se a lista sorteada, foi a ultima ou não. 
         semAval = False
         if Bingo < 21:
             if ultimaLista == 'Bingo1':
@@ -77,21 +79,20 @@ def IdeBingo():
                 semAval = True
             ultimaLista = 'Bingo3'
         
+        # se a verificação liberar, passa para a próxima etapa, se não, continua no ciclo
         if not semAval:
-            # se o valor ja estiver dentro da lista, exclui ele
+            # se o valor não estiver dentro da lista, vai adicionar ele
             if Bingo not in I:
                 I.append(Bingo)
 
 
 def NdeBingo():
-    # enquanto a lista for diferente de 5, a funcao vai continuar sendo chamada
     lista1 = [31,32,33,34,35]
     lista2 = [36,37,38,39,40]
     lista3 = [41,42,43,44,45]
 
     ultimaLista = 'Vazio'
     while len(N) < 5:
-        # vai sortear entre os valores das listas
         Bingo1 = random.choice(lista1)
         Bingo2 = random.choice(lista2)
         Bingo3 = random.choice(lista3)
@@ -112,20 +113,17 @@ def NdeBingo():
             ultimaLista = 'Bingo3'
 
         if not semAval:
-            # se o valor ja estiver dentro da lista, exclui ele
             if Bingo not in N:
                 N.append(Bingo)
 
 
 def GdeBingo():
-    # enquanto a lista for diferente de 5, a funcao vai continuar sendo chamada
     lista1 = [46,47,48,49,50]
     lista2 = [51,52,53,54,55]
     lista3 = [56,57,58,59,60]
 
     ultimaLista = 'Vazio'
     while len(G) < 5:
-        # vai sortear entre os valores das listas
         Bingo1 = random.choice(lista1)
         Bingo2 = random.choice(lista2)
         Bingo3 = random.choice(lista3)
@@ -146,19 +144,16 @@ def GdeBingo():
             ultimaLista = 'Bingo3'
         
         if not semAval:
-            # se o valor ja estiver dentro da lista, exclui ele
             if Bingo not in G:
                 G.append(Bingo)
 
 def OdeBingo():
-    # enquanto a lista for diferente de 5, a funcao vai continuar sendo chamada
     lista1 = [61,62,63,64,65]
     lista2 = [66,67,68,69,70]
     lista3 = [71,72,73,74,75]
 
     ultimaLista = 'Vazio'
     while len(O) < 5:
-        # vai sortear entre os valores das listas
         Bingo1 = random.choice(lista1)
         Bingo2 = random.choice(lista2)
         Bingo3 = random.choice(lista3)
@@ -179,7 +174,6 @@ def OdeBingo():
             ultimaLista = 'Bingo3'
         
         if not semAval:
-            # se o valor ja estiver dentro da lista, exclui ele
             if Bingo not in O:
                 O.append(Bingo)
         
@@ -213,7 +207,7 @@ while True:
         # chama a funcao de sortear os numeros
         sortearNumeros()
 
-        # apresentacao dos numeros da cartela e print 
+        # id unico da tabela e rodada destinada 
         print('------------------------')
         print(f"ID: {quantidadeCartelas} R:{rodadasCartelas}")
         print(f'B  | I  | N  | G  | O  ')
@@ -253,7 +247,6 @@ while True:
             cv2.putText(img, str(O[i]), (510, (400 + (116 * i))), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 0), thickness=2)
 
         cv2.imwrite('cartelas-numeradas/CARTELA_' + str(quantidadeCartelas) + '_R' + str(rodadasCartelas) + '.jpg', img)
-        cv2.destroyWindow("bingo_cartelaRotaract.jpg")
         quantidadeCartelas += 1
 
         print('------------------------')

@@ -188,70 +188,54 @@ class Ui_MainWindow(object):
             self.listOfBingo.remove('B')
 
     def sortearLetraI(self):
-        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
         numero = random.choice(self.listaI)
         self.listaI.remove(numero)
         self.labelNumeroGerado.setText('I: ' + str(numero))
 
-        # armazenando e ordenando o numero sorteado do tipo 'I', para colocar na GUI posteriormente.
         self.sorteadoNumeroI.append(numero)
         self.sorteadoNumeroI.sort()
 
-        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
         self.listaSorteados.append(numero)
 
-        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'I'
         if len(self.listaI) <= 0:
             self.listOfBingo.remove('I')
     
     def sortearLetraN(self):
-        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
         numero = random.choice(self.listaN)
         self.listaN.remove(numero)
         self.labelNumeroGerado.setText('N: ' + str(numero))
 
-        # armazenando e ordenando o numero sorteado do tipo 'N', para colocar na GUI posteriormente.
         self.sorteadoNumeroN.append(numero)
         self.sorteadoNumeroN.sort()
 
-        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
         self.listaSorteados.append(numero)
 
-        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'N'
         if len(self.listaN) <= 0:
             self.listOfBingo.remove('N')
 
     def sortearLetraG(self):
-        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
         numero = random.choice(self.listaG)
         self.listaG.remove(numero)
         self.labelNumeroGerado.setText('G: ' + str(numero))
 
-        # armazenando e ordenando o numero sorteado do tipo 'G', para colocar na GUI posteriormente.
         self.sorteadoNumeroG.append(numero)
         self.sorteadoNumeroG.sort()
         
-        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
         self.listaSorteados.append(numero)
 
-        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'G'
         if len(self.listaG) <= 0:
             self.listOfBingo.remove('G')
 
     def sortearLetraO(self):
-        # aqui vamos usar uma lista com o random.choice para conseguir remover o numero, se usarmos o random.randint, não teremos essa possibilidade. 
         numero = random.choice(self.listaO)
         self.listaO.remove(numero)
         self.labelNumeroGerado.setText('O: ' + str(numero))
 
-        # armazenando e ordenando o numero sorteado do tipo 'O', para colocar na GUI posteriormente.
         self.sorteadoNumeroO.append(numero)
         self.sorteadoNumeroO.sort()
         
-        # coloca todos os numeros sorteados nessa lista, depois vamos analisar quantos numeros restam para sortear
         self.listaSorteados.append(numero)
 
-        # se nao tiver nenhum numero na lista de numeros de sorteio, vai remover a possibilidade de sortear a letra 'O'
         if len(self.listaO) <= 0:
             self.listOfBingo.remove('O')
 

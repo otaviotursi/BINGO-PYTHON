@@ -148,17 +148,21 @@ class Ui_MainWindow(object):
     # disputa 1
     def sortear(self):
         
+        # definindo o valor para zero, caso o software ja tenha sido utilizado
         self.label_1.setText(str(0))
         self.pushButton.setDisabled(True)
 
         # sorteia 1 numero de 0 à 75
         sortear = randint(1, 75)
         
+        # para fazer com que não gere numeros iguais, fazemos um FOR que percorre a lista dos numeros ja sorteados e ele se encontre na lista, sorteia novamente, até não se encontrar
         for a in self.listaSorteados:
             while a == sortear:
                 sortear = randint(1, 75)
+        # adiciona a lista de numeros sorteados
         self.listaSorteados.append(sortear)
 
+        # define na GUI
         self.label_1.setText(str(sortear))
         self.pushButton.setDisabled(False)
 
